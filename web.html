@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Svante project</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:200px}
+
+/* The actual timeline (the vertical ruler) */
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: white;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+/* Container around content */
+.container {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+/* The circles on the timeline */
+.container::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: white;
+  border: 4px solid #FF9F55;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Place the container to the left */
+.left {
+  left: 0;
+}
+
+/* Place the container to the right */
+.right {
+  left: 50%;
+}
+
+/* Add arrows to the left container (pointing right) */
+.left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid white;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent white;
+}
+
+/* Add arrows to the right container (pointing left) */
+.right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+}
+
+/* Fix the circle for containers on the right side */
+.right::after {
+  left: -16px;
+}
+
+/* The actual content */
+.content {
+  padding: 20px 30px;
+  background-color: white;
+  position: relative;
+  border-radius: 6px;
+}
+
+/* Media queries - Responsive timeline on screens less than 600px wide */
+@media screen and (max-width: 600px) {
+  /* Place the timelime to the left */
+  .timeline::after {
+  left: 31px;
+  }
+  
+  /* Full-width containers */
+  .container {
+  width: 100%;
+  padding-left: 70px;
+  padding-right: 25px;
+  }
+  
+  /* Make sure that all arrows are pointing leftwards */
+  .container::before {
+  left: 60px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+  }
+
+  /* Make sure all circles are at the same spot */
+  .left::after, .right::after {
+  left: 15px;
+  }
+  
+  /* Make all right containers behave like the left ones */
+  .right {
+  left: 0%;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-container w3-red w3-center" style="padding:128px 16px">
+  <h1 class="w3-margin w3-jumbo">Svante SeeQ Project</h1>
+  <p class="w3-xlarge">BKO Services Inc.</p>
+  <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Svante Background Introduction</button>
+</header>
+
+<!-- First Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-twothird">
+      <h1>About Svante</h1>
+      <h5 class="w3-padding-32">Svante General Information Description. </h5>
+
+      <p class="w3-text-grey">It was founded in 2007, and its headquarters is in Burnaby, British Columbia. Developer of an adsorption technology designed to lower the cost curve of greenhouse gas emissions from post-combustion industrial and power plant flue gas. The company's technology captures post-combustion carbon dioxide from industrial fuel gas streams through the use of a rotary adsorption machine which functions as a rotary air preheater maximizing carbon capture productivity, enabling enterprises to cut capital costs and reducing energy regeneration. Its purpose is to create world-changing solutions that address climate change and accelerate the global transition to carbon neutrality, reversing human impact on the climate.</p>
+    </div>
+
+    <div class="w3-third w3-center">
+      <i class="fa fa-anchor w3-padding-64 w3-text-red"></i>
+    </div>
+    
+  </div>
+</div>
+
+<!-- Second Grid -->
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-third w3-center">
+      <i class="fa fa-coffee w3-padding-64 w3-text-red w3-margin-right"></i>
+    </div>
+
+    <div class="w3-twothird">
+      <h1>What does Svante do?</h1>
+      <h5 class="w3-padding-32">About Svante</h5>
+
+      <p class="w3-text-grey">Svante offers companies in emission-intensive industries a commercially viable way to capture large-scale CO2 emissions from existing infrastructure, either for safe storage or to be used for further industrial use in a closed loop. Its purpose is to create world-changing solutions that address climate change and accelerate the global transition to carbon neutrality, reversing human impact on the climate.
+</p>
+    </div>
+  </div>
+</div>
+
+<!-- Third Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-twothird">
+      <h1>Carbon capture technology</h1>
+      <h5 class="w3-padding-32">Svante develops technology that captures carbon dioxide from flue gas.</h5>
+
+      <p class="w3-text-grey">Solid sorbents, particularly metal-organic frameworks (MOFs), are a step change for the carbon capture industry. Svante uses MOF to capture CO2 from diluted flue gas streams with high capacity and selectivity over water. It captures 95% of the total CO2 emitted from industrial sources, adsorbing CO2 using direct low-pressure steam injection for regeneration. Concentrates it, then releases it for safe storage or industrial use, all in 60 seconds. The company's approach tailors specifically to the challenges of separating carbon dioxide from nitrogen contained in diluted flue gas generated by industrial plants such as cement, steel, aluminum, fertilizer, and hydrogen, which is typically emitted in large volumes, at low pressures, and dilute concentrations. Svante’s carbon capture technology consists of a patented architecture of structured adsorbent laminate (spaced sheets), proprietary process cycle design, and a rotary mechanical contactor to capture, release and regenerate the adsorbent in a single unit. Based on environmentally friendly solid sorbent technology, Svante carbon capture and removal solutions offer companies in heavy emitting, hard-to-decarbonize industries a commercially viable way to capture and remove CO2 emissions. The CO2 Svante capture is concentrated to pipeline grade purity, which can be safely transported and stored underground or used to make other products.</p>
+    </div>
+    <div class="w3-third w3-center">
+      <img src="pic_trulli.jpg" alt="Trulli" width="500" height="333">
+    </div>
+  </div>
+</div>
+
+<!-- Fourth Grid -->
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-third w3-center">
+      <img src="pic_trulli.jpg" alt="Trulli" width="500" height="333">
+    </div>
+
+    <div class="w3-twothird">
+      <h1>ICS3 International Carbon Capture Center</h1>
+      <h5 class="w3-padding-32">Svante, in partnership with Electricore Inc., creates ICS3 to focus on the demonstration, testing, and education of second-generation CO₂ capture technology using advanced solid adsorbent materials.</h5>
+
+      <p class="w3-text-grey">The center’s objective is to move novel solid adsorbent materials from the laboratory to operational power and industrial plants, and to establish new standards in the characterization of new adsorbent materials and benchmark the performance of CO₂ capture processes using rapid cycles.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Video 1 -->
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+  <div class="w3-content">
+  	<div class="w3-third w3-center">
+    	<h1>Svante Carbon Capture in 60 Seconds</h1>
+      <h5 class="w3-padding-32">The patented VeloxoTherm™ process is the most economically viable approach for separating CO₂ from flue gas streams. It's so radically different from conventional carbon capture technologies that few believe it's possible. Discover how it works by watching this animation, then you decide.</h5>
+    </div>
+
+    <div class="w3-twothird">
+      <iframe width="600" height="420" src="https://www.youtube.com/embed/y6Kgs_imJO4">
+		</iframe>
+    </div>
+  </div>
+</div>
+
+<!-- Video 2 -->
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+  <div class="w3-content">
+  	<div class="w3-third w3-center">
+    	<h1>Talk to Svante</h1>
+      <h5 class="w3-padding-32">A comprehensive overview of carbon management and the opportunity it creates for companies like Svante positioned to deliver across the value chain.</h5>
+    </div>
+
+    <div class="w3-twothird">
+      <iframe width="600" height="420" src="https://www.youtube.com/embed/nlMTBF7L5go">
+		</iframe>
+    </div>
+  </div>
+</div>
+
+<!-- Five Grid -->
+<div class="timeline">
+  <div class="container left">
+    <div class="content">
+      <h2>December 15, 2022</h2>
+      <p>Chevron New Energies (CNE), a division of Chevron U.S.A. Inc., and Svante announced that Chevron is the lead investor in Svante’s Series E fundraising round, which raised $318 million that will be used to accelerate the manufacturing of Svante’s carbon capture technology.</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>July 7, 2021</h2>
+      <p>Svante raises a $19,800,000 venture round.</p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h2>February 2, 2021</h2>
+      <p>Svante raises a $100,000,000 series D round from BDC Capital, Carbon Direct, Chart Industries, Chevron Technology Ventures, Chrysalix Venture Capital, Export Development Canada, OGCI Climate Investments, Roda Group and Temasek Holdings.</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>October 28, 2019</h2>
+      <p>Inventys - a developer of carbon capture technology changes name to Svante Inc.</p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h2>June 25, 2019</h2>
+      <p>Svante raises a $26,000,000 series C round from BDC Capital, Business Development Bank of Canada, Chevron Technology Ventures, Husky Energy, OGCI Climate Investments and Roda Group.</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>July 11, 2017</h2>
+      <p>Svante raises a $12,900,000 series B round from Chrysalix Venture Capital, Husky Energy and Roda Group.</p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h2>March 2016</h2>
+      <p>Svante raises a $2,573,000 grant from Sustainable Development Technology Canada - Technologies Du Développement Durable Canada.</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>2007</h2>
+      <p>Svante was founded by André Boulet, Brett Henkel, Darryl Wolanski and Soheil Khiavi.</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+    <h1 class="w3-margin w3-xlarge">More information: TBD</h1>
+</div>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+</body>
+</html>
